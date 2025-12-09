@@ -1,0 +1,191 @@
+/**
+ *  1 EJERCICIO
+ */
+
+let personas = prompt("Ingrese el número de personas:");
+
+personas = Number(personas);
+
+if (personas < 0) {
+    alert("Ingrese un número válido");
+} else {
+    let costo = 0;
+
+    if (personas <= 200) {
+        costo = personas * 25000;
+    } else if (personas <= 300) {
+        costo = personas * 18500;
+    } else {
+        costo = personas * 16000;
+    }
+
+    alert("El presupuesto es: $" + costo);
+}
+
+
+/**
+ * 2 EJERCICIO
+ */
+let precio = Number(prompt("Ingrese el precio del traje:"));
+
+if (precio < 0) {
+    alert("Ingrese un precio válido");
+} else {
+    let descuento;
+    let porcentaje;
+
+    if (precio > 125000) {
+        porcentaje = 0.35;
+    } else {
+        porcentaje = 0.10;
+    }
+
+    descuento = precio * porcentaje;
+    let total = precio - descuento;
+
+    alert(
+        "Descuento: $" + descuento +
+        "\nPorcentaje: " + (porcentaje * 100) + " %" +
+        "\nTotal a pagar: $" + total
+    );
+}
+
+/**
+ * 3 EJERCICIO
+ */
+let cantidad = Number(prompt("Ingrese el número de hamburguesas:"));
+let tipo = prompt("Tipo de hamburguesa (sencilla, doble, triple):");
+let pago = prompt("Tipo de pago (tarjeta o efectivo):");
+
+let precioUnit = 0;
+
+if (tipo === "sencilla") {
+    precioUnit = 20000;
+} else if (tipo === "doble") {
+    precioUnit = 25000;
+} else if (tipo === "triple") {
+    precioUnit = 28000;
+} else {
+    alert("Tipo de hamburguesa inválido");
+}
+
+let totalSinCargo = precioUnit * cantidad;
+
+let cargo = 0;
+if (pago === "tarjeta") {
+    cargo = totalSinCargo * 0.07;
+}
+
+let total = totalSinCargo + cargo;
+alert(
+    "Precio Unit.: $" + precioUnit +
+    "\nCantidad: " + cantidad +
+    "\nTipo de pago: " + pago +
+    "\nTotal sin cargo: $" + totalSinCargo +
+    "\nEl cargo es: $" + cargo +
+    "\nTotal a pagar es: $" + total
+);
+
+/**
+ * 4 EJERCICIO
+ */
+let peso = Number(prompt("Ingrese el peso del paquete (kg):"));
+let zona = Number(prompt("Ingrese la zona (1 a 5):"));
+
+if (peso > 85) {
+    alert("El paquete con peso de " + peso + " kg excede el peso permitido");
+} else {
+    
+    let costoGramo = 0;
+
+    if (zona === 1) {
+        costoGramo = 210;
+    } else if (zona === 2) {
+        costoGramo = 180;
+    } else if (zona === 3) {
+        costoGramo = 220;
+    } else if (zona === 4) {
+        costoGramo = 340;
+    } else if (zona === 5) {
+        costoGramo = 370;
+    } else {
+        alert("¡Zona no válida!");
+        return;
+    }
+
+    let valor = peso * costoGramo;
+
+    alert("Valor: $ " + valor);
+}
+
+/**
+ * 5 EJERCICIO
+ */
+let tipo = prompt("Tipo de panela (P1 o P2):");
+let tamaño = Number(prompt("Tamaño de la panela (1 o 2):"));
+let precio = Number(prompt("Precio base por kilo:"));
+let kilos = Number(prompt("Kilos de producción:"));
+
+let ajuste = 0;
+
+if (tipo === "P1") {
+    if (tamaño === 1) {
+        ajuste = 1200;
+    } else {
+        ajuste = 830;
+    }
+}
+
+else if (tipo === "P2") {
+    if (tamaño === 1) {
+        ajuste = -540;
+    } else {
+        ajuste = -350;
+    }
+} else {
+    alert("Tipo inválido");
+}
+
+let precioFinal = precio + ajuste;
+let ganancia = precioFinal * kilos;
+
+alert("La ganancia es: $ " + ganancia);
+
+
+
+/**
+ * 6 EJERCICIO
+ */
+let cantidad = Number(prompt("Cantidad de audífonos:"));
+
+let precioUnit;
+
+if (cantidad >= 1000) {
+    precioUnit = 49850;
+} else {
+    precioUnit = 71290;
+}
+
+let total = cantidad * precioUnit;        
+
+alert("Total a pagar es: $ " + total);
+
+
+/**
+ * 7 EJERCICIO
+ */
+
+let horas = Number(prompt("Horas laboradas:"));
+let tarifa = Number(prompt("Tarifa por hora:"));
+
+let salario;
+
+if (horas <= 40) {
+    salario = horas * tarifa;
+} else {
+    let horasExtra = horas - 40;
+    let tarifaExtra = tarifa * 1.5;
+    salario = (40 * tarifa) + (horasExtra * tarifaExtra);
+}
+
+alert("Salario del trabajador es: $ " + salario);
